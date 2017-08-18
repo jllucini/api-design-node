@@ -10,7 +10,7 @@ app.get('/', function(req, res){
     if (err) {
       res.status(500).send(err);
     }
-  })
+  });
 });
 
 app.get('/data', function(req, res) {
