@@ -18,7 +18,7 @@ exports.params = function(req, res, next, id) {
 exports.get = function(req, res, next) {
   // need to populate here
   var promise = Post.find({})
-    .populate('author')
+    .populate('author categories')
     .exec();
   promise.then(function(posts){
       res.json(posts);
