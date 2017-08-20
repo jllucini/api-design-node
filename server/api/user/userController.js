@@ -26,6 +26,8 @@ exports.get = function(req, res, next) {
 
 exports.getOne = function(req, res, next) {
   // fix me
+  var auser = req.user;
+  res.json(auser);
 };
 
 exports.put = function(req, res, next) {
@@ -41,7 +43,7 @@ exports.put = function(req, res, next) {
     } else {
       res.json(saved);
     }
-  })
+  });
 };
 
 exports.post = function(req, res, next) {

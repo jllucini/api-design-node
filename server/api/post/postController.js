@@ -17,6 +17,14 @@ exports.params = function(req, res, next, id) {
 
 exports.get = function(req, res, next) {
   // need to populate here
+  var promise = Post.find({})
+    .populate('author')
+    .exec();
+  promise.then(function(posts){
+      res.json(posts);
+    }, function(err){
+      next(err);
+    });
 };
 
 exports.getOne = function(req, res, next) {
@@ -37,7 +45,7 @@ exports.put = function(req, res, next) {
     } else {
       res.json(saved);
     }
-  })
+  });
 };
 
 exports.post = function(req, res, next) {
